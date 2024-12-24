@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 import GameOverScreen from './screens/GameOverScreen';
-import { useFonts } from 'expo-font';
-import AppLoading from 'expo-app-loading';
 
 useFonts({
   'open-sans' : require('./assets/fonts/OpenSans-Regular.ttf'),
   'open-sans-bold' : require('./assets/fonts/OpenSans-Bold.ttf'),
 
 });
+import Colors from './constants/colors';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();
@@ -33,7 +34,7 @@ export default function App() {
     setGameIsOver(false);
   }
 
-  function gameOverHandler(numberOfRounds) {
+  function gameOverHandler() {
     setGameIsOver(true);
     setGuessRounds(numberOfRounds);
   }
